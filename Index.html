@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoSabão | Recicle e Transforme</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  scroll-behavior:smooth;
+  font-family:Arial,sans-serif
+}
+
+body{
+  background:#f7fbf8;
+  color:#20352d
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 7%;
+  box-shadow:0 5px 25px #00000015
+}
+
+.logo{
+  font-size:25px;
+  font-weight:bold;
+  color:#278568
+}
+
+nav{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center
+}
+
+nav a{
+  text-decoration:none;
+  color:#21483a;
+  font-weight:bold;
+  padding:11px 16px;
+  border-radius:13px;
+  background:linear-gradient(145deg,#fff,#eef7f2);
+  border:1px solid #d6e8df;
+  box-shadow:0 4px 0 #bfd6cc,0 7px 14px #1f4d3c22;
+  transition:.2s
+}
+
+nav a:hover{
+  color:white;
+  background:#2c9976;
+  transform:translateY(-4px);
+  box-shadow:0 8px 0 #1c6952,0 14px 25px #2c997644
+}
+
+section{
+  padding:75px 7%
+}
+
+.hero{
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(135deg,#e1f7ed,#f7fbf8)
+}
+
+.hero-content{
+  max-width:850px
+}
+
+.tag{
+  display:inline-block;
+  padding:9px 18px;
+  border-radius:30px;
+  background:#d9f3e7;
+  color:#277c60;
+  font-weight:bold;
+  margin-bottom:20px
+}
+
+h1{
+  font-size:clamp(42px,7vw,76px);
+  color:#173d30;
+  margin-bottom:25px
+}
+
+h1 span{
+  color:#2c9976
+}
+
+.hero p{
+  font-size:19px;
+  line-height:1.7;
+  color:#587067
+}
+
+.btn{
+  display:inline-block;
+  margin:25px 5px 0;
+  padding:15px 27px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold
+}
+
+.btn-primary{
+  background:#2c9976;
+  color:white
+}
+
+.btn-secondary{
+  border:2px solid #2c9976;
+  color:#2c9976
+}
+
+.section-title{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 45px
+}
+
+.section-title span{
+  color:#2c9976;
+  font-weight:bold;
+  text-transform:uppercase;
+  letter-spacing:2px
+}
+
+.section-title h2{
+  font-size:38px;
+  margin:12px 0;
+  color:#173d30
+}
+
+.section-title p{
+  color:#687b73;
+  line-height:1.7
+}
+
+.cards{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px
+}
+
+.card{
+  background:white;
+  padding:32px;
+  border-radius:22px;
+  box-shadow:0 10px 35px #20352d12;
+  transition:.3s
+}
+
+.card:hover{
+  transform:translateY(-7px)
+}
+
+.icon{
+  font-size:35px;
+  margin-bottom:18px
+}
+
+.card h3{
+  color:#1f604b;
+  margin-bottom:12px
+}
+
+.card p,
+.step p,
+.chemistry-card p{
+  color:#687b73;
+  line-height:1.7
+}
+
+.process{
+  background:#edf8f2
+}
+
+.steps{
+  max-width:950px;
+  margin:auto;
+  display:grid;
+  gap:18px
+}
+
+.step{
+  background:white;
+  display:flex;
+  align-items:center;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 7px 25px #20352d0f
+}
+
+.number{
+  min-width:55px;
+  height:55px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#2c9976;
+  color:white;
+  border-radius:50%;
+  font-size:20px;
+  font-weight:bold;
+  margin-right:20px
+}
+
+.chemistry-box{
+  max-width:1050px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px
+}
+
+.chemistry-card{
+  padding:35px;
+  border-radius:22px;
+  background:#f2faf6;
+  border:1px solid #dcefe5
+}
+
+.chemistry-card h3{
+  color:#24765c;
+  margin-bottom:15px
+}
+
+.formula{
+  margin-top:20px;
+  padding:18px;
+  background:white;
+  border-radius:12px;
+  text-align:center;
+  font-weight:bold;
+  color:#24765c
+}
+
+.safety{
+  max-width:1000px;
+  margin:auto;
+  background:#fff7df;
+  border-left:6px solid #e0a329;
+  border-radius:20px;
+  padding:35px
+}
+
+.safety h2{
+  color:#946b15;
+  margin-bottom:15px
+}
+
+.safety p{
+  color:#6e5c32;
+  line-height:1.8
+}
+
+.photo-card{
+  max-width:1000px;
+  margin:auto;
+  background:#10271f;
+  padding:12px;
+  border-radius:25px;
+  box-shadow:0 20px 45px #10271f33
+}
+
+.photo-card img{
+  display:block;
+  width:100%;
+  max-height:600px;
+  object-fit:cover;
+  border-radius:18px
+}
+
+.photo-caption{
+  color:white;
+  text-align:center;
+  padding:16px;
+  line-height:1.5
+}
+
+.aviso{
+  max-width:1000px;
+  margin:25px auto;
+  padding:25px;
+  background:#fff7df;
+  border-left:6px solid #e0a329;
+  border-radius:15px;
+  color:#5f512e;
+  line-height:1.7
+}
+
+.aviso h3{
+  color:#946b15;
+  margin-bottom:10px
+}
+
+footer{
+  background:#10271f;
+  color:white;
+  text-align:center;
+  padding:45px
+}
+
+footer p{
+  color:#aac0b7
+}
+
+@media(max-width:800px){
+
+  header{
+    flex-direction:column;
+    gap:18px
+  }
+
+  nav a{
+    padding:9px 12px;
+    font-size:13px
+  }
+
+  .cards,
+  .chemistry-box{
+    grid-template-columns:1fr
+  }
+
+  .step{
+    align-items:flex-start
+  }
+
+  .section-title h2{
+    font-size:30px
+  }
+
+  section{
+    padding:60px 5%
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">🧼 EcoSabão</div>
+
+<nav>
+<a href="#sobre">Sobre</a>
+<a href="#processo">Processo</a>
+<a href="#quimica">Química</a>
+<a href="#beneficios">Benefícios</a>
+<a href="#seguranca">Segurança</a>
+<a href="#foto">Foto</a>
+</nav>
+
+</header>
+
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="tag">♻️ RECICLAGEM + QUÍMICA</div>
+
+<h1>
+Do óleo usado para uma nova
+<span>utilidade.</span>
+</h1>
+
+<p>
+Conheça a relação entre o reaproveitamento do óleo de cozinha,
+a química e a produção de sabão.
+</p>
+
+<a class="btn btn-primary" href="#processo">
+Conhecer o processo
+</a>
+
+<a class="btn btn-secondary" href="#quimica">
+Ver a química
+</a>
+
+</div>
+
+</section>
+
+
+<section id="sobre">
+
+<div class="section-title">
+
+<span>Por que isso importa?</span>
+
+<h2>
+Uma pequena mudança pode fazer diferença
+</h2>
+
+<p>
+O descarte incorreto do óleo de cozinha pode causar impactos
+ambientais. O reaproveitamento permite transformar um resíduo
+em matéria-prima.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">♻️</div>
+<h3>Reaproveitamento</h3>
+<p>
+O óleo usado pode ser destinado à reciclagem em vez de ser
+simplesmente descartado.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🌎</div>
+<h3>Meio ambiente</h3>
+<p>
+O descarte inadequado pode causar problemas ambientais e
+dificultar o tratamento do esgoto.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🧼</div>
+<h3>Produção de sabão</h3>
+<p>
+Óleos e gorduras podem participar de uma reação química
+conhecida como saponificação.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="process" id="processo">
+
+<div class="section-title">
+
+<span>Entenda as etapas</span>
+
+<h2>Como acontece o processo?</h2>
+
+<p>
+Conheça as principais etapas de forma educativa.
+</p>
+
+</div>
+
+<div class="steps">
+
+<div class="step">
+<div class="number">1</div>
+<div>
+<h3>Coleta do óleo</h3>
+<p>
+O óleo usado é armazenado depois de esfriar para ser destinado
+ao reaproveitamento.
+</p>
+</div>
+</div>
+
+<div class="step">
+<div class="number">2</div>
+<div>
+<h3>Filtragem</h3>
+<p>
+O óleo pode ser filtrado para retirar restos de alimentos
+e outras impurezas.
+</p>
+</div>
+</div>
+
+<div class="step">
+<div class="number">3</div>
+<div>
+<h3>Saponificação</h3>
+<p>
+Ocorre uma reação química entre componentes do óleo e uma
+substância alcalina, formando sabão.
+</p>
+</div>
+</div>
+
+<div class="step">
+<div class="number">4</div>
+<div>
+<h3>Moldagem</h3>
+<p>
+Após o processo adequado, o material pode ser colocado
+em moldes apropriados.
+</p>
+</div>
+</div>
+
+<div class="step">
+<div class="number">5</div>
+<div>
+<h3>Preparação</h3>
+<p>
+O produto precisa passar pelo período de preparação adequado
+antes de sua utilização.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="quimica">
+
+<div class="section-title">
+
+<span>Química por trás do processo</span>
+
+<h2>🔬 O que é saponificação?</h2>
+
+<p>
+A saponificação é uma reação química fundamental para compreender
+como óleos e gorduras podem originar sabão.
+</p>
+
+</div>
+
+<div class="chemistry-box">
+
+<div class="chemistry-card">
+
+<h3>🧪 A reação</h3>
+
+<p>
+Os óleos vegetais são constituídos principalmente por triglicerídeos.
+Na presença de uma base forte, esses compostos sofrem uma
+transformação química que produz sabão e glicerol.
+</p>
+
+<div class="formula">
+Óleo + Base → Sabão + Glicerol
+</div>
+
+</div>
+
+<div class="chemistry-card">
+
+<h3>🫧 Como o sabão limpa?</h3>
+
+<p>
+As moléculas de sabão possuem uma parte que interage com a água
+e outra que interage com substâncias oleosas. Isso ajuda a
+remover a gordura durante a lavagem.
+</p>
+
+<div class="formula">
+🫧 Água + Gordura
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="beneficios">
+
+<div class="section-title">
+
+<span>Benefícios</span>
+
+<h2>🌱 Transformar é melhor que desperdiçar.</h2>
+
+<p>
+Reciclar o óleo permite dar uma nova finalidade a um material
+que seria descartado.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">💧</div>
+<h3>Descarte correto</h3>
+<p>Evite jogar óleo usado diretamente na pia.</p>
+</div>
+
+<div class="card">
+<div class="icon">♻️</div>
+<h3>Reutilização</h3>
+<p>Um resíduo pode ganhar uma nova finalidade.</p>
+</div>
+
+<div class="card">
+<div class="icon">🔬</div>
+<h3>Aprendizado</h3>
+<p>O processo permite estudar a saponificação.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="seguranca">
+
+<div class="section-title">
+
+<span>Importante</span>
+
+<h2>⚠️ Segurança em primeiro lugar</h2>
+
+</div>
+
+<div class="safety">
+
+<h2>Cuidados com a produção</h2>
+
+<p>
+A produção tradicional de sabão pode envolver soda cáustica
+(hidróxido de sódio), uma substância corrosiva. Sua manipulação
+exige equipamentos de proteção, ambiente adequado, procedimentos
+corretos e supervisão de uma pessoa capacitada.
+</p>
+
+</div>
+
+</section>
+
+
+<section id="foto">
+
+<div class="section-title">
+
+<span>Registro visual</span>
+
+<h2>📸 Reciclagem na prática</h2>
+
+<p>
+Imagem de uma atividade educativa relacionada à produção de sabão
+e ao reaproveitamento de óleo de cozinha.
+</p>
+
+</div>
+
+<div class="photo-card">
+
+<img src="foto.jpg" alt="Atividade de produção de sabão com óleo de cozinha">
+
+<div class="photo-caption">
+♻️ Reaproveitamento do óleo de cozinha em uma atividade educativa.
+</div>
+
+</div>
+
+<div class="aviso">
+
+<h3>⚠️ Aviso de conscientização</h3>
+
+<p>
+O descarte incorreto do óleo de cozinha pode causar impactos
+ao meio ambiente e problemas no sistema de esgoto.
+Procure armazenar o óleo usado corretamente e destiná-lo
+à reciclagem.
+</p>
+
+<p>
+A produção de sabão pode envolver substâncias químicas que
+exigem cuidados especiais. Atividades práticas devem ser
+realizadas somente com supervisão e orientação adequada.
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<h2>🧼 EcoSabão</h2>
+
+<p>
+Reciclar é transformar. 🌱
+</p>
+
+</footer>
+
+</body>
+  </html>
